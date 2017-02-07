@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.domikado.griddaggerretro.R;
 import com.domikado.griddaggerretro.entitie.ModelSongs;
+import com.domikado.griddaggerretro.network.Helper;
 
 import java.util.List;
 
@@ -39,9 +40,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         ModelSongs mSong = modelSongses.get(position);
         holder.songTitle.setText(mSong.getSongTitle());
         holder.songAuthor.setText(mSong.getSongAuthor());
-        String imagePath = mSong.getSongImage();
+        String imagePath = Helper.URL + "images/" + mSong.getSongImage();
         Glide.with(context).load(imagePath)
-
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .fitCenter()
                 .into(holder.songImage);

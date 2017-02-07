@@ -41,6 +41,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         holder.songAuthor.setText(mSong.getSongAuthor());
         String imagePath = mSong.getSongImage();
         Glide.with(context).load(imagePath)
+
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .fitCenter()
                 .into(holder.songImage);
